@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog</title>
+</head>
+<body>
+<h3>List Users</h3>
+<div class="grid">
+    <% for (let contact of contacts) { %>
+        <article class="card contact-item">
+            <p class="name"><%= contact.name %></p>
+            <p class="number"><%= contact.address %></p>
+            <p class="email"><%= contact.email %></p>
+            <p class="phone"><%= contact.phone %></p>
+            <div class="card__actions">
+                <a href="/contact/edit/<%= contact._id %>">Edit</a>
+                <form action="/contact/<%= contact._id %>" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+                <a href="/contact/detail<%=contact._id%>">Detail</a>
+            </div>
+        </article>
+
+    <% } %>
+
+</div>
+
+<a href="/contact/add">Add</a>
+<a href="/contact?page=<%=Number(currentPage)-1%>">Pre</a>
+<a href="/contact?page=<%=Number(currentPage)+1%>">Next</a>
+
+</body>
+
+</html>

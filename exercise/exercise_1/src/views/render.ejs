@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog</title>
+</head>
+<body>
+<h3>List Users</h3>
+<div class="grid">
+    <% for (let user of users) { %>
+        <article class="card user-item">
+            <p class="name"><%= user.name %></p>
+            <p class="number"><%= user.number %></p>
+            <p class="email"><%= user.email %></p>
+            <p class="phone"><%= user.phone %></p>
+            <div class="card__actions">
+                <a href="/user/edit/<%= user._id %>">Edit</a>
+                <form action="/user/<%= user._id %>" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </article>
+
+    <% } %>
+
+</div>
+
+<a href="/user/create">Add</a>
+
+</body>
+
+</html>
